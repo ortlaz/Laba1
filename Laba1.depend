@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1570473282 source:c:\users\lenovo\documents\university\cèÀÎÄ\laba1\main.cpp
+	"Structers.h"
+
+1570471084 source:c:\users\lenovo\documents\university\cèÀÎÄ\laba1\untitled2.cpp
+	"Structers.h"
+
+1570471084 c:\users\lenovo\documents\university\cèÀÎÄ\laba1\structers.h
+	<iostream>
+	<cstdlib>
+

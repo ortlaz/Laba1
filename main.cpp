@@ -135,23 +135,28 @@ while(pointer){
     pointer=pointer->next;
 }
 
-temp=pointer->begining;//для удобства
+	//Если нашелся элемент, который нужно удалить
+	if (pointer && pointer->begining)
+	{
+		temp = pointer->begining;//для удобства
 
-while(temp->type==value && temp->next){
-    //Трюк Вирта
-    temp->country=temp->next->country;
-    temp->type=temp->next->type;
-    temp->year=temp->next->year;
-    temp->next = temp->next->next;
-}
-//удаление
-if(temp->next==0 || temp->next->type!=value){
-        temp = temp->next;
-    if(temp == L){
-        L=temp->next;
-        free(temp);
-    }
-}
+		while (temp->type == value && temp->next) {
+			//Трюк Вирта
+			temp->country = temp->next->country;
+			temp->type = temp->next->type;
+			temp->year = temp->next->year;
+			temp->next = temp->next->next;
+		}
+
+		//удаление
+		if (temp->next == 0 || temp->next->type != value) {
+			temp = temp->next;
+			if (temp == L) {
+				L = temp->next;
+				free(temp);
+			}
+		}
+	}
 return L;
 }
 

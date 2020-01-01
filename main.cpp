@@ -2,7 +2,7 @@
 #include "windows.h"
 using namespace std;
 
-//создание списка
+//СЃРѕР·РґР°РЅРёРµ СЃРїРёСЃРєР°
 void createList(Car*& List, int n){
 Car* newCar;
 
@@ -33,7 +33,7 @@ for(int i=0;i<n;i++){
 }
 
 
-//вывод списка
+//РІС‹РІРѕРґ СЃРїРёСЃРєР°
 void outList(Car* List){
 Car* newCar = List;
     cout<<"Information.\n";
@@ -42,7 +42,7 @@ while (newCar){
     newCar = newCar->next;
     }
 }
-//поискк элемента по значению
+//РїРѕРёСЃРєРє СЌР»РµРјРµРЅС‚Р° РїРѕ Р·РЅР°С‡РµРЅРёСЋ
 Car* findElement(Car* List,string value){
 
 Car* pointer= List;
@@ -54,7 +54,7 @@ while(pointer){
 }
 return pointer;
 }
-//вставка элемента
+//РІСЃС‚Р°РІРєР° СЌР»РµРјРµРЅС‚Р°
 Car* pushEl(Car* List){
 Car *temp, *ptr, *pointer=List;
 
@@ -78,14 +78,14 @@ while(pointer->next){
 pointer=pointer->next;
 
 }
-//вставка
+//РІСЃС‚Р°РІРєР°
 ptr=pointer->next;
 pointer->next=temp;
 temp->next = ptr;
 
 return temp;
 }
-//создание списка моделей машин
+//СЃРѕР·РґР°РЅРёРµ СЃРїРёСЃРєР° РјРѕРґРµР»РµР№ РјР°С€РёРЅ
 void createNewList(Models*& List, int m, Car* L){
 Models* ptr;
 
@@ -112,7 +112,7 @@ for(int i=0;i<m;i++){
 }
 
 }
-//вывод списка моделей машин
+//РІС‹РІРѕРґ СЃРїРёСЃРєР° РјРѕРґРµР»РµР№ РјР°С€РёРЅ
 
 void outNewList(Models* List){
 Models* ptr = List;
@@ -122,12 +122,12 @@ while (ptr){
     ptr = ptr->next;
     }
 }
-//удаление элементов
+//СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ
 Car* deleteModel(Models* List, Car* L, string value){
    Models* pointer= List;
    Car* temp;
 
-//поиск указателя на первый удаляемый элемент
+//РїРѕРёСЃРє СѓРєР°Р·Р°С‚РµР»СЏ РЅР° РїРµСЂРІС‹Р№ СѓРґР°Р»СЏРµРјС‹Р№ СЌР»РµРјРµРЅС‚
 while(pointer){
     if(pointer->type==value){
         break;
@@ -135,20 +135,20 @@ while(pointer){
     pointer=pointer->next;
 }
 
-	//Если нашелся элемент, который нужно удалить
+	//Р•СЃР»Рё РЅР°С€РµР»СЃСЏ СЌР»РµРјРµРЅС‚, РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ СѓРґР°Р»РёС‚СЊ
 	if (pointer && pointer->begining)
 	{
-		temp = pointer->begining;//для удобства
+		temp = pointer->begining;//РґР»СЏ СѓРґРѕР±СЃС‚РІР°
 
 		while (temp->type == value && temp->next) {
-			//Трюк Вирта
+			//РўСЂСЋРє Р’РёСЂС‚Р°
 			temp->country = temp->next->country;
 			temp->type = temp->next->type;
 			temp->year = temp->next->year;
 			temp->next = temp->next->next;
 		}
 
-		//удаление
+		//СѓРґР°Р»РµРЅРёРµ
 		if (temp->next == 0 || temp->next->type != value) {
 			temp = temp->next;
 			if (temp == L) {
@@ -162,36 +162,36 @@ return L;
 
 
 int main()
-{   SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+{   SetConsoleCP(866);
+	SetConsoleOutputCP(866);
     Car* List = NULL;
     Models* Spisk = NULL;
     int var;
 while(var){
     system("cls");
-    cout<<"Меню:\n"<<"1.Создание модельного списка машин.\n2.Вывод модельного списка машин.\n3.Поиск элемента в модельном списке\n4.Вставка информации о новой машине.\n5.Создание списка моеделей машин\n6.Вывод списка машин\n7.Удаление информации о машинах определённой модели\n0.Выход\n";
+    cout<<"РњРµРЅСЋ:\n"<<"1.РЎРѕР·РґР°РЅРёРµ РјРѕРґРµР»СЊРЅРѕРіРѕ СЃРїРёСЃРєР° РјР°С€РёРЅ.\n2.Р’С‹РІРѕРґ РјРѕРґРµР»СЊРЅРѕРіРѕ СЃРїРёСЃРєР° РјР°С€РёРЅ.\n3.РџРѕРёСЃРє СЌР»РµРјРµРЅС‚Р° РІ РјРѕРґРµР»СЊРЅРѕРј СЃРїРёСЃРєРµ\n4.Р’СЃС‚Р°РІРєР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ РЅРѕРІРѕР№ РјР°С€РёРЅРµ.\n5.РЎРѕР·РґР°РЅРёРµ СЃРїРёСЃРєР° РјРѕРµРґРµР»РµР№ РјР°С€РёРЅ\n6.Р’С‹РІРѕРґ СЃРїРёСЃРєР° РјР°С€РёРЅ\n7.РЈРґР°Р»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РјР°С€РёРЅР°С… РѕРїСЂРµРґРµР»С‘РЅРЅРѕР№ РјРѕРґРµР»Рё\n0.Р’С‹С…РѕРґ\n";
 
-    cout<<"Выберите действие:";
+    cout<<"Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:";
     cin>>var;
 
     switch(var){
         case 1:{
 
             int n=4;
-            //создание списка машин
+            //СЃРѕР·РґР°РЅРёРµ СЃРїРёСЃРєР° РјР°С€РёРЅ
             createList(List,n);
             system("pause");
             break;
         }
         case 2:{
-            //вывод списка машин
+            //РІС‹РІРѕРґ СЃРїРёСЃРєР° РјР°С€РёРЅ
             outList(List);
             system("pause");
             break;
         }
 
         case 3:{
-            //поиск элемента
+            //РїРѕРёСЃРє СЌР»РµРјРµРЅС‚Р°
             cout<<"ELEMENT:\n";
             Car* Lst = findElement(List, "Nissan");
             while (Lst && Lst->type=="Nissan"){
@@ -202,7 +202,7 @@ while(var){
             break;
         }
         case 4:{
-            //вставка элемента
+            //РІСЃС‚Р°РІРєР° СЌР»РµРјРµРЅС‚Р°
             pushEl(List);
             system("pause");
             break;
@@ -219,7 +219,7 @@ while(var){
             break;
         }
         case 7:{
-            //удаление элементов
+            //СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ
             deleteModel(Spisk,List, "BMW");
             system("pause");
             break;
@@ -230,7 +230,7 @@ while(var){
             break;
         }
         default:
-            cout<<"Выберите число от 0 до 7\n";
+            cout<<"Р’С‹Р±РµСЂРёС‚Рµ С‡РёСЃР»Рѕ РѕС‚ 0 РґРѕ 7\n";
             system("pause");
             break;
     }
